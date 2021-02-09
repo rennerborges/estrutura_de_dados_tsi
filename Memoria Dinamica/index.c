@@ -27,15 +27,37 @@ void carro_preencher(carro_t *c, char *nome, int mes1, int mes2, int mes3)
 
 int main()
 {
+    /* Declarando variaveis */
+
+    char modelo[MAX];
+    int mes1, mes2, mes3;
+
     /* Cria array de carros */
+
     carro_t *carros = malloc(QTD_CARROS * sizeof(carro_t));
 
+    if (carros == NULL)
+    {
+        printf("Houve um problema, tente novamente!");
+        exit(1);
+    }
     /* Preenche os dados de cada Carro na array */
-    carro_preencher(&carros[0], "Chevrolet Onix", 17463, 17662, 12007);
-    carro_preencher(&carros[1], "Chevrolet Onix Plus", 8722, 9123, 6670);
-    carro_preencher(&carros[2], "Hyundai HB20", 6555, 8420, 7042);
-    carro_preencher(&carros[3], "Volkswagen Gol", 6030, 5944, 5681);
-    carro_preencher(&carros[4], "Fiat Strada", 5419, 5190, 4799);
+
+    for (size_t i = 0; i < QTD_CARROS; i++)
+    {
+        printf("Informe o modelo do carro:");
+        gets(modelo);
+        printf("Informe o número de vendas do primeiro mês:");
+        scanf("%d", &mes1);
+        printf("Informe o número de vendas do segundo mês:");
+        scanf("%d", &mes2);
+        printf("Informe o número de vendas do terceiro mês:");
+        scanf("%d", &mes3);
+        printf("---------------------------------------------------- \n");
+        getchar();
+
+        carro_preencher(&carros[i], modelo, mes1, mes2, mes3);
+    }
 
     for (size_t i = 0; i < QTD_CARROS; i++)
     {
@@ -48,6 +70,7 @@ int main()
     }
 
     /* Libera array de carros */
+
     free(carros);
 
     return 0;
