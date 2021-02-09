@@ -25,7 +25,7 @@ void carro_preencher(carro_t *c, char *nome, int mes1, int mes2, int mes3)
     c->media = (mes1 + mes2 + mes3) / 3;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     /* Cria array de carros */
     carro_t *carros = malloc(QTD_CARROS * sizeof(carro_t));
