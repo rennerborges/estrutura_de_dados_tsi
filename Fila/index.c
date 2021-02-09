@@ -29,7 +29,7 @@ void listar_fila()
 
 void remocao_fila()
 {
-    if (f < r && f <= tm)
+    if (f <= r && f <= tm)
     {
         xinf[f] = inf[f];
         inf[f] = NULL;
